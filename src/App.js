@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import {useState, useEffect} from 'react'
 import './App.css';
 
 function App() {
+  const [bucketList, setBucketList] = useState("")
+
+  const getBucketList = async () => {
+    try{
+      const getList = await fetch("http://localhost:8080/blist")
+      const jsonList = await getList.json()
+      setBucketList(jsonList)
+      console.log(bucketList, jsonList)
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    getBucketList()
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Bucket List</h1>
     </div>
   );
 }
