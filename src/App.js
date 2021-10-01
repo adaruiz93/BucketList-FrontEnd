@@ -1,53 +1,24 @@
-import {useState, useEffect} from 'react'
 import './App.css';
 import NewForm from './component/NewForm';
-import CreateList from './component/NewForm';
+import BucketList from './component/BucketList';
+import EditForm from './component/EditForm'
+import Details from './component/Details'
 
 function App() {
-  const [bucketList, setBucketList] = useState([])
-
-  const getBucketList = async () => {
-    try {
-      const getList = await fetch("http://localhost:8080/blist")
-      const jsonList = await getList.json()
-      setBucketList(jsonList)
-      console.log(bucketList, jsonList)
-    } catch(err) {
-      console.log(err)
-    }
-  }
-
-  useEffect(() => {
-    getBucketList()
-  })
-
   return (
     <div className="App">
-      <NewForm />
-      <h1>Bucket List</h1>
-      <thead>
-        <tr>
-          <th>name</th>
-          <th>where</th>
-          <th>what</th>
-          <th>amigos</th>
-          <th>$$</th>
-        </tr>
-      </thead>
-      <table>
-        <tbody>{bucketList && bucketList.map(bucket => (
-          <tr>
-            <td>{bucket.name}</td>
-            <td>{bucket.location}</td>
-            <td>{bucket.activity}</td>
-            <td>{bucket.friends}</td>
-            <td>{bucket.costs}</td>
-          </tr>
-        ))}
-        </tbody>
-      </table>
+      <h1>Bucket List App</h1>
+
+      <Router>
+        <Switch>
+          <Route exact path="/blist/new" render={(routerProps) => <NewForm {...routerProps} />} />
+          <Route exact path="/blist" render={() => <BucketList />} />
+          <Route exact path="/blist/:id/edit" render={(routerProps) => <EditForm {...routerProps} />} />
+          <Route exact path="/blist/:id" render={(routerProps) => <Details {...routerProps} />} />
+        </Switch>
+      </Router>
     </div>
-  );
+  )
 }
 
 export default App;
