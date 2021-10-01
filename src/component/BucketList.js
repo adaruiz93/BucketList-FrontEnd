@@ -29,7 +29,7 @@ export default function BucketList(){
         </tr>
       </thead>
       <table>
-        <tbody>{bucketList && bucketList.map(bucket => (
+        <tbody>{buckets && buckets.map(bucket => (
           <tr key={bucket._id}>
             <td>{bucket.name}</td>
             <td>{bucket.location}</td>

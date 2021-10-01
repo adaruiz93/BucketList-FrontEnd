@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
 export default function Details(props){
-  const currentId = props.params.currentId
+  console.log(props);
+  const currentId = props.match.params.currentId
   const [bucket, setBucket] = useState({})
   const [loading, setLoading]= useState(true)
   console.log(bucket);
@@ -20,7 +21,7 @@ export default function Details(props){
 
   useEffect(()=>{
     getBucket(currentId)
-  })
+  }, [])
 
   return (
     <>
