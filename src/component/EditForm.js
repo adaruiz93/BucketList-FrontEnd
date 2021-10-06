@@ -28,6 +28,9 @@ const EditForm = (props) => {
 
     const handleSubmit = async (event) => {
       event.preventDefault()
+      const { name, location, activity, friends, costs } = editInput
+      const bucketData = { name, location, activity, friends, costs }
+      updateBucket(editInput._id, bucketData)
     }
 
     const getBucket = async () => {
@@ -49,8 +52,8 @@ const EditForm = (props) => {
   return (
     <div>
       <h1>Edit Bucket List</h1>
-      { loading ? <h3>Loading...</h3> : 
-      <form>
+      { loading ? <h3>Loading...</h3> :
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="">Name</label>
            <input type="text" value={editInput.name} onChange={handleChange} />

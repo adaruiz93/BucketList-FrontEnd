@@ -19,16 +19,16 @@ export default function BucketList(){
 
   return (
     <>
-    <thead>
-        <tr>
-          <th>name</th>
-          <th>where</th>
-          <th>what</th>
-          <th>amigos</th>
-          <th>$$</th>
-        </tr>
-      </thead>
       <table>
+        <thead>
+            <tr>
+              <th>name</th>
+              <th>where</th>
+              <th>what</th>
+              <th>amigos</th>
+              <th>$$</th>
+            </tr>
+        </thead>
         <tbody>{buckets && buckets.map(bucket => (
           <tr key={bucket._id}>
             <td>{bucket.name}</td>

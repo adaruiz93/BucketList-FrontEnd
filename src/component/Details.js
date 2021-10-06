@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 export default function Details(props){
   console.log(props);
-  const currentId = props.match.params.currentId
+  const currentId = props.match.params.id
   const [bucket, setBucket] = useState({})
   const [loading, setLoading]= useState(true)
   console.log(bucket);

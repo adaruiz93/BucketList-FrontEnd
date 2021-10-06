@@ -24,11 +24,3 @@ function App() {
 }
 
 export default App;
-
-/*
-remote = github
-pull from remote main into local main after merge on remote
-checkout feature branch, merge local main code into feature branch
-
-
-*/
