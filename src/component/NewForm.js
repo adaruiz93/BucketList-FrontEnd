@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom'
 
 export default function NewForm(props) {
     const [userInput, setUserInput] = useState({ name: "" })
+    // I would think you'd want the same object that you have in edit form here 
+    //   const [editInput, setEditInput] = useState({
+    // name: '',
+    // location: '',
+    // costs: 0
+    // }
     const onChange = e => {
         setUserInput({ ...userInput, [e.target.name]: e.target.value})
     }
 
     const handleSubmit = e => {
-        e.preventDefault(userInput)
+        e.preventDefault() // you don't need user input here. 
         newBucket(userInput)
     }
 
