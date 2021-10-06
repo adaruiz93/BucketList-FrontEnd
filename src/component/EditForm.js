@@ -66,6 +66,7 @@ const EditForm = (props) => {
           <label htmlFor="">Cost</label>
            <input type="text" value={editInput.costs} onChange={handleChange} />
         </div>
+        <input type="submit" value="Edit" />
       </form>
       }
     </div>
