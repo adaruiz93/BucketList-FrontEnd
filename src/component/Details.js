@@ -33,6 +33,9 @@ export default function Details(props){
         </div>
       ) }
       <Link to="/blist">Go Back</Link>
+      <br />
+      <Link to={`/blist/${currentId}/edit`}>Edit</Link>
+
     </>
   )
 }

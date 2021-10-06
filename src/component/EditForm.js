@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 const EditForm = (props) => {
   const [editInput, setEditInput] = useState()
   const [loading, setLoading] = useState(true)
-  console.log(props);
+  console.log(loading);
 
     const handleChange = (event) => {
       setEditInput({
@@ -36,10 +36,10 @@ const EditForm = (props) => {
     const getBucket = async () => {
       try {
         const id = props.match.params.id
-        const update = await fetch(`http:localhost:8080/blist/${id}`)
+        const update = await fetch(`http://localhost:8080/blist/${id}`)
         const parsed = await update.json()
         setEditInput(parsed)
-        setLoading(false)
+        setLoading(!loading)
       } catch (error) {
         console.log(error);
       }
