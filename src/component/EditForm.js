@@ -1,9 +1,14 @@
 import React, {useState, useEffect} from 'react'
 
 const EditForm = (props) => {
-  const [editInput, setEditInput] = useState()
+  const [editInput, setEditInput] = useState({
+    name: '',
+    location: '',
+    costs: 0
+  })
   const [loading, setLoading] = useState(true)
   console.log(loading);
+
 
     const handleChange = (event) => {
       setEditInput({
@@ -21,7 +26,7 @@ const EditForm = (props) => {
           "Content-Type": "application/json"
         }
       }
-      const update = await fetch(`http:localhost:8080/blist/${id}`, config)
+      const update = await fetch(`http://localhost:8080/blist/${id}`, config)
       const parsedData = await update.json()
       props.history.push("/blist/"+id)
     }
