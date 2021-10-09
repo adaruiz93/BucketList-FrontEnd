@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 
 const EditForm = (props) => {
-  const [editInput, setEditInput] = useState({
+  const initState = {
     name: '',
     location: '',
     costs: 0
-  })
+  }
+  const [editInput, setEditInput] = useState(initState)
   const [loading, setLoading] = useState(true)
   console.log(loading);
 
